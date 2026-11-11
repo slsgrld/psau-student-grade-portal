@@ -395,6 +395,41 @@ body { background:#f4f9f7; color:var(--portal-text); font-size:14px; line-height
 .pending-assessment .assessment-score { font-size:15px; }
 .pending-assessment .assessment-score-label { margin-bottom:4px; }
 .status-NR { color:#64748b; background:#f1f5f9; }
+
+/* v10.15: student guidance and instructor contact, independent of grade calculations. */
+.portal-concern-card{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin:16px 0 25px;padding:18px 20px;border:1px solid #bdebd4;border-radius:18px;background:linear-gradient(120deg,#f3fbf7,#f9fdfb)}
+.portal-concern-card h3{font:700 18px/1.3 'Outfit',sans-serif;color:#133b30;margin:0 0 4px}
+.portal-concern-card p{font-size:13px;color:#526b64;line-height:1.6;margin:0}
+.portal-contact-button,.portal-feature-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:43px;padding:10px 16px;border:1px solid #059669;border-radius:11px;background:#059669;color:#fff;font:700 13px 'Sora',sans-serif;cursor:pointer}
+.portal-contact-button:hover,.portal-feature-primary:hover{background:#047857}
+.portal-feature-secondary,.portal-inc-help{display:inline-flex;align-items:center;justify-content:center;min-height:41px;padding:9px 13px;border:1px solid #9bd9c0;border-radius:11px;background:#fff;color:#047857;font:700 13px 'Sora',sans-serif;cursor:pointer}
+.portal-feature-secondary:hover,.portal-inc-help:hover{background:#e9f9f0}
+.portal-inc-help{min-height:36px;margin-top:14px;border-color:#f3d4a6;color:#92400e;background:#fffaf0}
+.portal-inc-help:hover{background:#fff0d6}
+.portal-feature-modal .info-modal-content{width:min(94vw,640px);max-width:640px;max-height:88vh;padding:28px 30px}
+.portal-feature-title-row{display:flex;align-items:start;justify-content:space-between;gap:15px;margin-bottom:20px}
+.portal-feature-title-row h2{font:700 25px/1.25 'Outfit',sans-serif;color:#10243a}
+.portal-feature-title-row p{font-size:13px;color:#64748b;line-height:1.5;margin-top:6px}
+.portal-feature-close{width:35px;height:35px;flex:none;border-radius:999px;background:#f1f5f9;color:#334155;font-size:23px;line-height:1;cursor:pointer}
+.portal-feature-close:hover{background:#e2e8f0}
+.portal-info-sections h3{font:700 16px 'Outfit',sans-serif;color:#183a31;margin:17px 0 7px}
+.portal-info-sections p,.portal-info-sections li{font-size:13px;line-height:1.75;color:#44586a}
+.portal-info-sections ol,.portal-info-sections ul{padding-left:23px;list-style:decimal;display:grid;gap:6px}
+.portal-info-sections ul{list-style:disc}
+.portal-info-note{border-left:3px solid #059669;background:#f0fdf6;padding:12px 14px;border-radius:0 10px 10px 0;margin-top:16px}
+.portal-info-note p{margin:0}
+.portal-feature-footer{border-top:1px solid #e2e8f0;padding-top:17px;margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.portal-feature-label{font-size:13px;font-weight:700;color:#334155;display:block;margin-bottom:7px}
+.portal-feature-input{font:400 14px 'Sora',sans-serif;color:#0f172a;width:100%;border:1.5px solid #cbd5e1;border-radius:11px;background:white;padding:11px 12px;outline:none}
+.portal-feature-input:focus{border-color:#059669;box-shadow:0 0 0 3px rgba(5,150,105,.12)}
+.portal-feature-input[type=textarea],textarea.portal-feature-input{resize:vertical;min-height:125px;line-height:1.65}
+.portal-feature-form-row{margin-top:16px}
+.portal-concern-student{font-size:12px;line-height:1.8;color:#526b64;border:1px solid #e2e8f0;border-radius:12px;background:#f8fafc;padding:12px 14px;white-space:pre-wrap;overflow-wrap:anywhere}
+.portal-feature-hint{font-size:12px;line-height:1.6;color:#64748b;margin-top:10px}
+.portal-feedback{min-height:18px;font-size:12px;color:#047857;margin-top:12px;line-height:1.6}
+.portal-feedback.error{color:#b91c1c}
+.portal-contact-button:focus-visible,.portal-feature-primary:focus-visible,.portal-feature-secondary:focus-visible,.portal-inc-help:focus-visible,.portal-feature-close:focus-visible{outline:3px solid rgba(5,150,105,.35);outline-offset:3px}
+@media(max-width:600px){.portal-concern-card{align-items:stretch;padding:17px}.portal-contact-button{width:100%}.portal-feature-modal .info-modal-content{width:94vw;max-height:90vh;padding:21px 18px}.portal-feature-title-row h2{font-size:21px}.portal-feature-footer{flex-direction:column;align-items:stretch}.portal-feature-footer button{width:100%}}
 </style></head><body><div class="min-h-screen portal-shell"><main class="portal-main"><header class="portal-header"><p class="portal-institution">Pampanga State Agricultural University</p><h1>Student Grade Portal</h1><p class="portal-subtitle">Grades, assessments, and attendance</p><div class="portal-semester"><span>First Semester</span><span class="separator" aria-hidden="true">·</span><span>AY 2026–2027</span></div></header>
 <section id="loginCard" class="portal-login-card" aria-labelledby="loginHeading"><div class="login-header"><div><p class="eyebrow">Individual student access</p><h2 id="loginHeading">View your academic record</h2><p>Enter your credentials to view your results.</p></div><button id="gradeInfoOpen" class="info-link" aria-controls="gradeInformation" aria-haspopup="dialog" type="button">ⓘ Grade Information</button></div>
 <div class="login-fields"><div class="field-block"><label for="studentInput">Student Number</label><input id="studentInput" class="portal-input" autocomplete="off" autocapitalize="characters" inputmode="text" placeholder="e.g., C202500062"/><p class="field-hint">Enter your student number without hyphens.</p></div><div class="field-block"><label for="accessInput">Private Access Code</label><div class="access-input-wrap"><input id="accessInput" class="portal-input" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Enter your access code"/><button type="button" id="toggleAccessCode" aria-label="Show access code" aria-pressed="false">Show</button></div></div></div>
@@ -420,8 +455,37 @@ body { background:#f4f9f7; color:var(--portal-text); font-size:14px; line-height
   <p class="heading-font text-2xl font-bold text-slate-800 mb-2">Searching Records</p><p class="text-slate-500 text-sm" id="loadingLabel">Checking your record</p>
 </div>
 <div class="hidden" id="results"><article class="portal-profile-card" aria-label="Student academic record"><div class="profile-heading"><div class="profile-identity"><div class="profile-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="m2 10 10-5 10 5-10 5-10-5Z"/><path d="M6 12v5c4 3 8 3 12 0v-5"/><path d="M22 10v6"/></svg></div><div><p class="eyebrow">Student record</p><h2 id="studentName"></h2><p id="studentMeta"></p></div></div><span class="academic-status passed" id="academicStatus">Passed</span></div><div class="grade-grid"><div class="official-grade-card" id="officialGradeCard"><p class="eyebrow">Official Grade / Code</p><strong id="officialGradeValue">—</strong><span id="officialGradeContext">Academic standing</span></div><div id="metrics" class="metrics-board"></div></div><div id="statusNotice"></div></article>
+
 <div class="tabs-header"><span class="tabs-heading">Academic Details</span><button type="button" id="gradeInfoOpenResult" class="profile-info-link" aria-controls="gradeInformation" aria-haspopup="dialog">ⓘ Grade Information</button></div>
-<div aria-label="Student record tabs" id="tabs" role="tablist"><button class="pill active" data-tab="overview" role="tab" aria-controls="panel" type="button">Overview</button><button class="pill" data-tab="attendance" role="tab" aria-controls="panel" type="button">Attendance</button><button class="pill" data-tab="breakdown" role="tab" aria-controls="panel" type="button">Grade Breakdown</button><button class="pill" data-tab="assessment" role="tab" aria-controls="panel" type="button">Assessments</button><button class="pill" data-tab="computation" role="tab" aria-controls="panel" type="button">Grade Computation</button></div><section id="panel" role="tabpanel" aria-label="Academic details"></section><div class="portal-bottom-actions"><button type="button" id="searchAnotherBtn">Search Another Student</button></div></div>
+<div aria-label="Student record tabs" id="tabs" role="tablist"><button class="pill active" data-tab="overview" role="tab" aria-controls="panel" type="button">Overview</button><button class="pill" data-tab="attendance" role="tab" aria-controls="panel" type="button">Attendance</button><button class="pill" data-tab="breakdown" role="tab" aria-controls="panel" type="button">Grade Breakdown</button><button class="pill" data-tab="assessment" role="tab" aria-controls="panel" type="button">Assessments</button><button class="pill" data-tab="computation" role="tab" aria-controls="panel" type="button">Grade Computation</button></div><section id="panel" role="tabpanel" aria-label="Academic details"></section><section class="portal-concern-card" id="contactInstructorCard" aria-labelledby="contactInstructorHeading"><div><h3 id="contactInstructorHeading">Questions about your academic record?</h3><p>Contact your instructor directly by email.</p></div><button id="concernOpen" type="button" class="portal-contact-button" aria-controls="concernInformation" aria-haspopup="dialog">Email a Concern</button></section><div class="portal-bottom-actions"><button type="button" id="searchAnotherBtn">Search Another Student</button></div></div>
+
+<div id="incInformation" class="info-modal portal-feature-modal hidden" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="incInfoTitle">
+  <div class="info-modal-content" tabindex="-1">
+    <div class="portal-feature-title-row"><div><h2 id="incInfoTitle">About your Incomplete (INC) status</h2><p>Guidance for completing outstanding academic requirements.</p></div><button type="button" class="portal-feature-close" id="incInfoClose" aria-label="Close INC information">×</button></div>
+    <div class="portal-info-sections">
+      <h3>What INC means</h3><p>An INC indicates that the course has an outstanding requirement. It is not, by itself, a failed grade. The requirements shown in your individual record are the items to address.</p>
+      <h3>Your outstanding requirements</h3><div id="incInfoRequirements"></div>
+      <h3>Completion period</h3><p>The PSAU Student Handbook requires grades of Incomplete to be removed <strong>within one academic year</strong>. An INC not completed within this period is automatically changed to <strong>5.0</strong> under the Handbook's grading provisions.</p>
+      <h3>Completion process</h3><ol><li>Review the outstanding requirements listed in your record.</li><li>Contact your instructor through email to clarify the work and applicable instructions.</li><li>Comply with the outstanding requirements during the designated completion period. Processing begins next semester.</li><li>Follow the University's official completion process for the removal of the INC.</li></ol>
+      <div class="portal-info-note"><p>The portal provides information about your recorded status. Your official University record and applicable academic policies govern completion and final grading.</p></div>
+    </div>
+    <div class="portal-feature-footer"><button type="button" class="portal-feature-primary" id="incInfoEmail">Email a Concern</button><button type="button" class="portal-feature-secondary" id="incInfoDone">Close</button></div>
+    <p class="portal-feature-hint">Reference: PSAU Student Handbook, provisions on Incomplete grades and completion period.</p>
+  </div>
+</div>
+<div id="concernInformation" class="info-modal portal-feature-modal hidden" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="concernInfoTitle">
+  <div class="info-modal-content" tabindex="-1">
+    <div class="portal-feature-title-row"><div><h2 id="concernInfoTitle">Email a Concern</h2><p>Prepare an inquiry about your academic record.</p></div><button type="button" class="portal-feature-close" id="concernInfoClose" aria-label="Close concern form">×</button></div>
+    <p class="portal-feature-label">Student and course details</p><div id="concernStudentDetails" class="portal-concern-student"></div>
+    <form id="concernForm" novalidate>
+      <div class="portal-feature-form-row"><label class="portal-feature-label" for="concernCategory">Category of concern</label><select id="concernCategory" class="portal-feature-input" required><option value="">Select a category</option><option value="Attendance records">Attendance records</option><option value="Assessment scores">Assessment scores</option><option value="Final grade or academic status">Final grade or academic status</option><option value="INC and completion requirements">INC and completion requirements</option><option value="Student information">Student information</option><option value="Other concern">Other concern</option></select></div>
+      <div class="portal-feature-form-row"><label class="portal-feature-label" for="concernMessage">Describe your concern</label><textarea id="concernMessage" class="portal-feature-input" rows="5" maxlength="2000" required placeholder="Describe the specific concern and any relevant assessment or attendance entry."></textarea></div>
+      <div id="concernFeedback" class="portal-feedback" role="status" aria-live="polite"></div>
+      <div class="portal-feature-footer"><button type="submit" class="portal-feature-primary">Continue to Email</button><button type="button" class="portal-feature-secondary" id="concernCopy">Copy Email Details</button></div>
+      <p class="portal-feature-hint">Continue to Email opens your device's email application with a prepared message to your instructor. Review the message and click Send in that application. The portal does not send or store your concern. If no email application opens, use Copy Email Details and paste the information into an email to gerald_salas@psau.edu.ph.</p>
+    </form>
+  </div>
+</div>
 </main><footer class="portal-footer"><p>Developed by <strong>Dr. Gerald M. Salas</strong></p></footer></div>
 <script>
 // Student records are encrypted individually. Access codes are never stored in this page.
@@ -456,7 +520,7 @@ function statusNoticeFor(s){
   const items=missingRequirementItems(s);
   const n=items.length;
   const rows=items.map((item,i)=>`<li class="requirement-item"><span class="requirement-index" aria-hidden="true">${i+1}</span><div class="requirement-detail"><span class="requirement-name">${s.sectionKey==='BSBio3C'?esc(bonusAssessmentName(item.name)):esc(item.name)}</span>${item.term?`<span class="requirement-term">${esc(item.term)}</span>`:''}</div></li>`).join('');
-  return `<div class="status-alert incomplete inc-notice" role="status" aria-label="Outstanding requirements"><div class="inc-notice-head"><strong>Outstanding Requirements</strong><span class="inc-count">${n?`${n} ${n===1?'item':'items'}`:'INC'}</span></div><p class="inc-subtitle">Your official academic status is <b>INC</b>. The following requirements remain outstanding:</p>${n?`<ol class="requirement-items">${rows}</ol>`:`<p class="inc-subtitle">No specific requirement is listed in this record.</p>`}</div>`;
+  return `<div class="status-alert incomplete inc-notice" role="status" aria-label="Outstanding requirements"><div class="inc-notice-head"><strong>Outstanding Requirements</strong><span class="inc-count">${n?`${n} ${n===1?'item':'items'}`:'INC'}</span></div><p class="inc-subtitle">Your official academic status is <b>INC</b>. The following requirements remain outstanding:</p>${n?`<ol class="requirement-items">${rows}</ol>`:`<p class="inc-subtitle">No specific requirement is listed in this record.</p>`}<button type="button" class="portal-inc-help" id="incInfoOpen" aria-controls="incInformation" aria-haspopup="dialog">What does this mean?</button></div>`;
  }
  if(s.status==='Unofficially Dropped')return `<div class="status-alert unofficially-dropped" role="status"><strong>Unofficially Dropped (UD)</strong><p>The official grade is <b>UD</b>. Recorded unexcused absence rate: <b>${fmt(s.attendance.absenceRate)}%</b>, against the <b>${t}%</b> threshold applied in this class record. ${esc(s.remarks||'See the Attendance tab for the meeting record.')}</p></div>`;
  if(s.status==='Officially Dropped')return `<div class="status-alert officially-dropped" role="status"><strong>Officially Dropped (DRP)</strong><p>The official grade is <b>DRP</b>. Effective drop date: <b>${esc(s.officialDropDate||'Refer to official record')}</b>. ${esc(s.remarks||'An approved official drop takes precedence over attendance-based status.')}</p></div>`;
@@ -631,7 +695,7 @@ async function searchRecord(){
 }
 function showSearchNotice(message){const n=document.getElementById('notice');n.classList.add('notice-error');n.textContent=message;}
 function clearSearchNotice(){const n=document.getElementById('notice');n.classList.remove('notice-error');n.textContent='';}
-function resetPortal(){record=null;active='overview';document.getElementById('studentInput').value='';document.getElementById('accessInput').value='';setCodeVisible(false);document.getElementById('loadingState').classList.add('hidden');document.getElementById('results').classList.add('hidden');document.getElementById('loginCard').classList.remove('hidden');document.getElementById('studentName').textContent='';document.getElementById('studentMeta').textContent='';document.getElementById('officialGradeValue').textContent='—';document.getElementById('metrics').innerHTML='';document.getElementById('statusNotice').innerHTML='';document.getElementById('panel').innerHTML='';clearSearchNotice();}
+function resetPortal(){closeFeatureDialog('incInformation',false);closeFeatureDialog('concernInformation',false);document.getElementById('concernForm').reset();setConcernFeedback('');record=null;active='overview';document.getElementById('studentInput').value='';document.getElementById('accessInput').value='';setCodeVisible(false);document.getElementById('loadingState').classList.add('hidden');document.getElementById('results').classList.add('hidden');document.getElementById('loginCard').classList.remove('hidden');document.getElementById('studentName').textContent='';document.getElementById('studentMeta').textContent='';document.getElementById('officialGradeValue').textContent='—';document.getElementById('metrics').innerHTML='';document.getElementById('statusNotice').innerHTML='';document.getElementById('panel').innerHTML='';clearSearchNotice();}
 function searchAnotherStudent(){resetPortal();const input=document.getElementById('studentInput');input.focus();const reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;input.scrollIntoView({behavior:reduced?'auto':'smooth',block:'center'});}
 
 function setCodeVisible(visible){const input=document.getElementById('accessInput'),btn=document.getElementById('toggleAccessCode');input.type=visible?'text':'password';btn.textContent=visible?'Hide':'Show';btn.setAttribute('aria-label',visible?'Hide access code':'Show access code');btn.setAttribute('aria-pressed',String(visible));}
@@ -642,6 +706,112 @@ document.getElementById('clearButton').onclick=resetPortal;
 document.getElementById('searchAnotherBtn').onclick=searchAnotherStudent;
 ['studentInput','accessInput'].forEach(id=>document.getElementById(id).addEventListener('keydown',e=>{if(e.key==='Enter')searchRecord()}));
 document.querySelectorAll('#tabs [data-tab]').forEach(b=>b.onclick=()=>{if(b.hidden)return;active=b.dataset.tab;render()});
+
+
+// v10.15: auxiliary student guidance and mailto inquiry form. No changes to grade computations or record encryption.
+const instructorConcernEmail='gerald_salas@psau.edu.ph';
+let featureReturnFocus=null;
+function openFeatureDialog(id,focusId){
+  if(!record)return;
+  featureReturnFocus=document.activeElement;
+  const modal=document.getElementById(id);
+  modal.classList.remove('hidden');modal.setAttribute('aria-hidden','false');
+  document.body.classList.add('grade-info-open');
+  document.getElementById(focusId).focus();
+}
+function closeFeatureDialog(id,restoreFocus=true){
+  const modal=document.getElementById(id);
+  if(!modal || modal.classList.contains('hidden'))return;
+  modal.classList.add('hidden');modal.setAttribute('aria-hidden','true');
+  if(document.getElementById('incInformation').classList.contains('hidden') && document.getElementById('concernInformation').classList.contains('hidden') && document.getElementById('gradeInformation').classList.contains('hidden'))document.body.classList.remove('grade-info-open');
+  if(restoreFocus && featureReturnFocus && typeof featureReturnFocus.focus==='function')featureReturnFocus.focus();
+}
+function openIncInformation(){
+  if(!record || record.status!=='Incomplete')return;
+  const items=missingRequirementItems(record);
+  document.getElementById('incInfoRequirements').innerHTML=items.length ?
+    `<ol>${items.map(item=>`<li>${esc(record.sectionKey==='BSBio3C'?bonusAssessmentName(item.name):item.name)}${item.term?' ('+esc(item.term)+')':''}</li>`).join('')}</ol>` :
+    '<p>No specific requirement is listed. Contact your instructor to confirm what must be completed.</p>';
+  openFeatureDialog('incInformation','incInfoClose');
+}
+function openConcernInformation(){
+  if(!record)return;
+  const s=record;
+  document.getElementById('concernStudentDetails').textContent=`Name: ${s.name||''}\nStudent Number: ${s.number||''}\nProgram and Year/Section: ${s.section||''}\nSemester and Academic Year: First Semester, AY 2026–2027\nCourse: ${s.course||''}`;
+  setConcernFeedback('');
+  if(s.status==='Incomplete' && !document.getElementById('concernCategory').value)document.getElementById('concernCategory').value='INC and completion requirements';
+  openFeatureDialog('concernInformation','concernCategory');
+}
+function setConcernFeedback(message,error=false){
+  const el=document.getElementById('concernFeedback');el.textContent=message;el.classList.toggle('error',error);
+}
+function buildConcernEmail(){
+  if(!record)return null;
+  const category=document.getElementById('concernCategory').value;
+  const message=document.getElementById('concernMessage').value.trim();
+  if(!category){setConcernFeedback('Please select a category of concern.',true);document.getElementById('concernCategory').focus();return null;}
+  if(!message){setConcernFeedback('Please describe your concern before continuing.',true);document.getElementById('concernMessage').focus();return null;}
+  const s=record;
+  const subject=`Academic Record Concern | ${s.number} | ${courseConfigs[s.sectionKey]?.courseCode||s.course||'Course'}`;
+  const body=[
+    'Dear Dr. Salas,','',
+    'Good day.','',
+    'I would like to raise a concern regarding my academic record in the Student Grade Portal.','',
+    `Student Name: ${s.name||''}`,
+    `Student Number: ${s.number||''}`,
+    `Program and Year/Section: ${s.section||''}`,
+    'Semester and Academic Year: First Semester, AY 2026–2027',
+    `Course: ${s.course||''}`,
+    `Category of Concern: ${category}`,'',
+    'Concern:',message,'',
+    'Thank you.','',
+    s.name||''
+  ].join('\n');
+  setConcernFeedback('');
+  return {subject,body};
+}
+document.getElementById('statusNotice').addEventListener('click',event=>{
+  if(event.target.closest('#incInfoOpen'))openIncInformation();
+});
+document.getElementById('concernOpen').addEventListener('click',openConcernInformation);
+document.getElementById('incInfoClose').addEventListener('click',()=>closeFeatureDialog('incInformation'));
+document.getElementById('incInfoDone').addEventListener('click',()=>closeFeatureDialog('incInformation'));
+document.getElementById('incInfoEmail').addEventListener('click',()=>{closeFeatureDialog('incInformation');openConcernInformation()});
+document.getElementById('concernInfoClose').addEventListener('click',()=>closeFeatureDialog('concernInformation'));
+document.getElementById('concernForm').addEventListener('submit',event=>{
+  event.preventDefault();
+  const message=buildConcernEmail();if(!message)return;
+  const uri='mailto:'+instructorConcernEmail+'?subject='+encodeURIComponent(message.subject)+'&body='+encodeURIComponent(message.body);
+  setConcernFeedback('Your email application should open. Review the message and click Send there; the portal has not sent anything.');
+  window.location.href=uri;
+});
+document.getElementById('concernCopy').addEventListener('click',async()=>{
+  const message=buildConcernEmail();if(!message)return;
+  const text=`To: ${instructorConcernEmail}\nSubject: ${message.subject}\n\n${message.body}`;
+  let copied=false;
+  try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(text);copied=true}}catch(_){}
+  if(!copied){
+    const tmp=document.createElement('textarea');tmp.value=text;tmp.setAttribute('readonly','');tmp.style.position='fixed';tmp.style.opacity='0';document.body.appendChild(tmp);tmp.select();
+    try{copied=document.execCommand('copy')}catch(_){}
+    tmp.remove();
+  }
+  setConcernFeedback(copied?'Email details copied. Paste them into an email addressed to '+instructorConcernEmail+'.':'Copying was not available. Please use Continue to Email or copy your inquiry manually.',!copied);
+});
+for(const id of ['incInformation','concernInformation']){
+  const modal=document.getElementById(id);
+  modal.addEventListener('click',event=>{if(event.target===modal)closeFeatureDialog(id)});
+}
+document.addEventListener('keydown',event=>{
+  const current=['concernInformation','incInformation'].map(id=>document.getElementById(id)).find(m=>!m.classList.contains('hidden'));
+  if(!current)return;
+  if(event.key==='Escape'){event.preventDefault();closeFeatureDialog(current.id);return;}
+  if(event.key!=='Tab')return;
+  const focusables=[...current.querySelectorAll('button:not([disabled]),select:not([disabled]),textarea:not([disabled]),input:not([disabled]),a[href]')].filter(e=>e.getClientRects().length);
+  if(!focusables.length)return;
+  const first=focusables[0],last=focusables[focusables.length-1];
+  if(event.shiftKey && document.activeElement===first){event.preventDefault();last.focus();}
+  else if(!event.shiftKey && document.activeElement===last){event.preventDefault();first.focus();}
+});
 
 // Grade information stays accessible without opening a demonstration record.
 function selectInfoTab(tabName){
